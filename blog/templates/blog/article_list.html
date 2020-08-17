@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="centerstage">
+
+    {% for article in article_list %}
+
+    <div class="post">
+
+        <h1><a href="{% url 'article_detail' pk=article.pk %}">{{article.title}}</a></h1>
+    </div>
+
+    <div class="date">
+      <p>published on: {{article.published_date|date:"D M Y"}}</p>
+    </div>
+
+    <div>
+        <a href="{% url 'article_detail' pk=article.pk %}">Comments :{{article.approve_comments.count}}</a>
+    </div>
+
+    {% endfor %}
+
+
+
+
+</div>
+
+{% endblock %}
